@@ -1,54 +1,42 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| -------------------------------------------------------------------------
-| URI ROUTING
-| -------------------------------------------------------------------------
-| This file lets you re-map URI requests to specific controller functions.
-|
-| Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a
-| URL normally follow this pattern:
-|
-|	example.com/class/method/id/
-|
-| In some instances, however, you may want to remap this relationship
-| so that a different class/function is called than the one
-| corresponding to the URL.
-|
-| Please see the user guide for complete details:
-|
-|	https://codeigniter.com/user_guide/general/routing.html
-|
-| -------------------------------------------------------------------------
-| RESERVED ROUTES
-| -------------------------------------------------------------------------
-|
-| There are three reserved routes:
-|
-|	$route['default_controller'] = 'welcome';
-|
-| This route indicates which controller class should be loaded if the
-| URI contains no data. In the above example, the "welcome" class
-| would be loaded.
-|
-|	$route['404_override'] = 'errors/page_missing';
-|
-| This route will tell the Router which controller/method to use if those
-| provided in the URL cannot be matched to a valid route.
-|
-|	$route['translate_uri_dashes'] = FALSE;
-|
-| This is not exactly a route, but allows you to automatically route
-| controller and method names that contain dashes. '-' isn't a valid
-| class or method name character, so it requires translation.
-| When you set this option to TRUE, it will replace ALL dashes in the
-| controller and method URI segments.
-|
-| Examples:	my-controller/index	-> my_controller/index
-|		my-controller/my-method	-> my_controller/my_method
-*/
-$route['default_controller'] = 'welcome';
+
+$route['default_controller'] = 'cliente';
+
+
+
+// cliente 
+
+$route['cliente/cadastrar'] = 'cliente/salvarCliente';
+$route['cliente/alterar/(:any)'] = 'cliente/editarCliente/$1';
+$route['cliente/alterar/salvar/(:any)'] = 'cliente/editarClienteSalvar/$1';
+$route['cliente/excluir/(:any)'] = 'cliente/deletarCliente/$1';
+
+// fim 
+
+// produto 
+
+$route['produtos'] = 'produto';
+$route['produto/cadastrar'] = 'produto/salvarProduto';
+$route['produto/alterar/(:any)'] = 'produto/editarProduto/$1';
+$route['produto/alterar/salvar/(:any)'] = 'produto/editarProdutoSalvar/$1';
+$route['produto/excluir/(:any)'] = 'produto/deletarProduto/$1';
+
+// fim 
+
+// pedidos 
+
+$route['pedidos'] = 'pedido';
+$route['pedido/solicitar'] = 'pedido/solicitarPedido';
+$route['pedido/excluir/(:any)'] = 'pedido/deletarPedido/$1';
+$route['pedido/editar/(:any)'] = 'pedido/editarPedido/$1';
+$route['pedido/editar/salvar/(:any)'] = 'pedido/salvarPedido/$1';
+
+
+//fim
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
